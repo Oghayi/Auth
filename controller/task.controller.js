@@ -3,13 +3,12 @@ import Task from "../models/task.models.js";
 const createTask = async (req, res) => {
     try {
         const { name, dueDate, user } = req.body;
-        if (!name || !dueDate || !user) {
-            return res.status(400).json({ message: "Name, due date, and user are required" });
+        if (!name || !dueDate) {
+            return res.status(400).json({ message: "Name and due date are required" });
         }
         const task = await Task.create({
             name,
             dueDate,
-            user
         });
         res.status(201).json({message: "Task created successfully", task});
     } catch (error) {
