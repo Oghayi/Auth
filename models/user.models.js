@@ -1,5 +1,4 @@
 import mongoose, { Schema } from 'mongoose';
-//const { Schema } = mongoose;
 import bcryptjs from 'bcryptjs';
 
 const userSchema = new Schema({
@@ -25,8 +24,14 @@ const userSchema = new Schema({
         min: 6,
         max: 64
     },
+
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user'
+    }
 }, {
-    timestrap: true
+    timestamps: true
 });
 
 //Hash password before saving
