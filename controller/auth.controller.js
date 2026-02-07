@@ -76,14 +76,6 @@ const loginUser = async (req, res) => {
     }
 }
 
-const getUsers = async (req, res) => {
-    try {
-        const users = await User.find();
-        res.status(200).json({ users });
-    } catch (error) {
-        res.status(500).json({ message: "Internal server error", error: error });
-    }
-}
 
  const logoutUser = async (req, res) => {
    res.status(200).json({ message: "Logged out successfully"});
@@ -107,7 +99,6 @@ const updateUser = async (req, res) => {
 export {
     registerUser,
     loginUser,
-    getUsers,
     logoutUser,
     updateUser
 }
