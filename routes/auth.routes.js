@@ -4,7 +4,7 @@ const router = Router();
 
 router.route('/register').post(registerUser);
 router.route('/login').post(loginUser);
-router.route('/getUsers').get(getUser);
+router.route('/getUsers').get(getUsers);
 router.route('/logout').post(logoutUser);
 router.route('/update/:id').put(updateUser);
 
